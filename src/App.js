@@ -3,6 +3,9 @@ import {Formulario, ContenedorBotonCentrado, Boton, MensajeExito, MensajeError} 
 import Input from './componentes/Input';
 
 const App = () => {
+
+
+
 	const [nombre, cambiarNombre] = useState({campo: '', valido: null});
 	const [password, cambiarPassword] = useState({campo: '', valido: null});
 	const [correo, cambiarCorreo] = useState({campo: '', valido: null});
@@ -29,6 +32,7 @@ const App = () => {
 	return (
 		<main>
             <h1><center>Registro</center></h1>
+			<hr></hr>
 			<Formulario action="" onSubmit={onSubmit}>
 				<Input
 					estado={nombre}
