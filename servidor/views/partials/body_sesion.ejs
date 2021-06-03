@@ -1,0 +1,63 @@
+<!--Datos de la aplicacion-->
+<!--Para comprobar que obtengo los datos de la base de datos-->
+
+<div class="container">
+    <div class="row mt-5">
+        <!--Columna de 7 donde va la tabla-->
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Direccion</th>
+                        <th>Telefono</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Sintaxis de ejs para recorrer el arreglo-->
+                    <% if(data) { %>
+                        <% for( var i = 0; i < data.length; i++) { %>
+                        <tr>
+                            <!--El igual es para que interprete los datos-->
+                            <td><%= (i+1) %></td>
+                            <td><%= data[i].nombre %></td>
+                            <td><%= data[i].direccion %></td>
+                            <td><%= data[i].telefono %></td>
+                            <td>
+                                <!--Pasando el id que tiene en la DB para saber que indice borrar-->
+                                <a href="/delete/<%= data[i].id %>" class="btn btn-danger"> Eliminar.. :(</a>
+                                <a href="/update/<%= data[i].id %>" class="btn btn-info">Actualizar</a>
+                            </td>
+                        </tr>
+                        <% } %>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+        <!--Columna de 5 donde van los formularios-->
+        <div class="col-md-5">
+            <!--Agregando un formato de tarjeta-->
+            <div class="card">
+                <div class="card-body">
+                    <!--Creando el formulario donde va toda la wea-->
+                    <form action="/add" method="post"> <!--Aqui el servidor escucha la ruta con el metodo post-->
+                        <div class="form-group">
+                            <input type="text" name="nombre" placeholder="Nombre" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="direccion" placeholder="Direccion" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="telefono" placeholder="Telefono" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Guardar datos
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

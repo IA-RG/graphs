@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Datos de charset, title y referencia a bootstrap-->
+        <%- include('partials/head.ejs'); %>
+    </head>
+    <header>
+        <!--Datos de la barra de navegacion-->
+        <%- include('partials/header.ejs'); %>
+    </header>
+    <body>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card-body">
+                    <!--Ruta de acceso a update-->
+                    <!--Creando el formulario donde va toda la wea-->
+                    <form action="/update/<%= data.id %>" method="post"> <!--Se ejecuta el formulario y manda los valores actualizados-->
+                        <div class="form-group">
+                            <input type="text" name="nombre" value="<%= data.nombre %>" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="direccion" value="<%= data.direccion %>" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="telefono" value="<%= data.telefono %>" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-success">
+                            Editar datos
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </body>
+    <footer>
+        <!--Datos de copyright-->
+        <%- include('partials/footer.ejs'); %>
+    </footer>
+</html>
