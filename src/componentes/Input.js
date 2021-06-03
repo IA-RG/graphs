@@ -1,5 +1,5 @@
 import React from 'react';
-import {Input, Label, GrupoInput, LeyendaError} from './../elementos/Formularios';
+import {Input, Label, GrupoInput, LeyendaError} from './Formularios';
 
 const ComponenteInput = ({estado, cambiarEstado, tipo, label, placeholder, name, leyendaError, expresionRegular, funcion}) => {
 	const onChange = (e) => {
